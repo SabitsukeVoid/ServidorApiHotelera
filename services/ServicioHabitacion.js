@@ -19,7 +19,7 @@ export class ServicioHabitacion {
     }
     // completar
     async eliminar(id){
-        let reserva=await modeloHabitacion.deleteOne({ "_id" : ObjectId(id) })
+        let reserva=await modeloHabitacion.deleteOne({ "_id" : id })
         return reserva
             
     } 
