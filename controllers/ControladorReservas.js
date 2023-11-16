@@ -24,6 +24,7 @@ export class ControladorReservas{
         }
     }
     async buscarPorId(request,response){
+        let servicioReserva=new ServicioReserva();
         try{
             //1. Hay que recibir datos? R: Si
             //2. Por donde se reciben los datos? Params (URL)
@@ -45,6 +46,7 @@ export class ControladorReservas{
         }
     }
     async modificar(request,response){
+        let servicioReserva=new ServicioReserva();
         try{
             //1. Hay que recibir datos? R: Si
             //2. Por donde se reciben los datos? Params = id, Body = datos de la reservas
@@ -67,6 +69,7 @@ export class ControladorReservas{
         }
     }
     async registrar(request,response){
+        let servicioReserva=new ServicioReserva();
         try{
             //1. Hay que recibir datos? R: Si
             //2. Por donde se reciben los datos? Body = datos de la reservas
@@ -88,6 +91,7 @@ export class ControladorReservas{
         }
     }
     async eliminar(request,response){
+        let servicioReserva=new ServicioReserva();
         try{
             //1. Hay que recibir datos? R:Si
             //2. Por donde se reciben los datos? Params = id
