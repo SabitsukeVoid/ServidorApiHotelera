@@ -5,7 +5,7 @@ export class ControladorReservas{
     }
 
     async buscar(request,response){
-        let ervicioReserva=new ServicioReserva();
+        let servicioReserva=new ServicioReserva();
         try{
             //1. Hay que recibir datos? R: No
             //2. Intentar conectarme a la BD
@@ -33,7 +33,8 @@ export class ControladorReservas{
             response.status(200).json({
                 "estado" : "true",
                 "mensaje" : "Exito buscando las reservas",
-                "datos" : "ACA VAN LOS DATOS DE LA BD"
+                "datos" : await servicioReserva.buscarPorId(id)
+
             })
         }catch(error){
             response.status(400).json({
@@ -50,11 +51,12 @@ export class ControladorReservas{
             let id = request.params.id
             let datosModificar = request.body
             //3. Conectarme al BD y mandar los datos recibidos para modificar
+            await servicioReserva.modificar(id, datosModificar) // antes de la respuesta
             //4. Enviar la respuesta
             response.status(200).json({
                 "estado" : "true",
                 "mensaje" : "Exito Modificando las reservas",
-                "datos" : null
+                "datos" : ""
             })
         }catch(error){
             response.status(400).json({
@@ -70,6 +72,7 @@ export class ControladorReservas{
             //2. Por donde se reciben los datos? Body = datos de la reservas
             let datosRegistrar = request.body
             //3. Conectarme al BD y registrar los datos
+            await servicioReserva.registrar(datosRegistrar)
             //4. Enviar la respuesta
             response.status(200).json({
                 "estado" : "true",
@@ -90,6 +93,7 @@ export class ControladorReservas{
             //2. Por donde se reciben los datos? Params = id
             let id = request.params.id
             //3. Conectarme al BD y eliminarlo
+            await servicioReserva.eliminar(id); //eliminar
             //4. Enviar la respuesta
             response.status(200).json({
                 "estado" : "true",

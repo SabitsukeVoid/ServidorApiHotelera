@@ -19,7 +19,7 @@ export class ServicioReserva {
     }
     // completar
     async eliminar(id){
-        let reserva=await modeloReserva.deleteOne(id)
+        let reserva=await modeloReserva.deleteOne({ "_id" : id })
         return reserva
             
     } 
