@@ -5,6 +5,22 @@ const Reserva=new Schema({
         type: String,
         required:true
     },
+    "nombreCliente":{
+        type: String,
+        required:true
+    },
+    "cedulaCliente":{
+        type: String,
+        required:true
+    },
+    "fechaInicio":{
+        type: String,
+        required:true
+    },
+    "fechaFin":{
+        type: String,
+        required:true
+    },
     "foto":{
         type:String,
         required:true
